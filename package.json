@@ -1,0 +1,27 @@
+{
+  "name": "fruits-crud",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://mmsonixx.github.io/fruits-crud/",
+  "bugs": {
+    "url": "https://github.com/mmsonixx/fruits-crud/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmsonixx/fruits-crud.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+
+  "scripts": {
+    "dev": "npx parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /fruits-crud/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
