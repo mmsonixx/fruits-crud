@@ -207,7 +207,7 @@
       });
     }
   }
-})({"h8ccv":[function(require,module,exports,__globalThis) {
+})({"2Sji4":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -215,7 +215,7 @@ var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "18aad67339e7e417";
+module.bundle.HMR_BUNDLE_ID = "95564967e82da207";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -713,41 +713,12 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"8zwhT":[function(require,module,exports,__globalThis) {
+},{}],"CV2vf":[function(require,module,exports,__globalThis) {
 var _addFruitJs = require("./api/addFruit.js");
 var _getFruitsJs = require("./api/get-fruits.js");
 var _indexJs = require("../index.js");
 const form = document.querySelector("[data-form]");
-const titleFruit = document.querySelector("[data-title]");
-const linkFruit = document.querySelector("[data-description]");
-form.addEventListener("submit", (event)=>{
-    event.preventDefault();
-    const elements = event.target.elements;
-    const title = elements.title.value;
-    const img = elements.img.value;
-    const description = elements.description.value;
-    const fruit = {
-        title: title,
-        photo: img,
-        description: description
-    };
-    (0, _addFruitJs.addFruitApi)(fruit);
-    (0, _indexJs.renderFruits)();
-    form.reset();
-});
 
-},{"./api/get-fruits.js":"cw6QM","./api/addFruit.js":"bKLre","../index.js":"a0t4e"}],"bKLre":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
-const addFruitApi = (newFruit)=>{
-    const options = {
-        method: "POST",
-        body: JSON.stringify(newFruit)
-    };
-    fetch("http://localhost:3000/fruits", options);
-};
+},{"./api/addFruit.js":"bKLre","./api/get-fruits.js":"cw6QM","../index.js":"a0t4e"}]},["2Sji4","CV2vf"], "CV2vf", "parcelRequire423e", {})
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["h8ccv","8zwhT"], "8zwhT", "parcelRequire423e", {})
-
-//# sourceMappingURL=fruits-crud.39e7e417.js.map
+//# sourceMappingURL=fruits-crud.e82da207.js.map

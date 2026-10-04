@@ -1,0 +1,2 @@
+var r=globalThis,e={},t={},o=r.parcelRequire423e;null==o&&((o=function(r){if(r in e)return e[r].exports;if(r in t){var o=t[r];delete t[r];var i={id:r,exports:{}};return e[r]=i,o.call(i.exports,i,i.exports),i.exports}var n=Error("Cannot find module '"+r+"'");throw n.code="MODULE_NOT_FOUND",n}).register=function(r,e){t[r]=e},r.parcelRequire423e=o),o.register,o("9F2Xy"),o("cMrwx"),o("4CEV9"),document.querySelector("[data-form]");
+//# sourceMappingURL=fruits-crud.d88212f1.js.map
