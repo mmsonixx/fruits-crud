@@ -2,75 +2,57 @@
   "fruits": [
     {
       "title": "Apple",
-      "photo": "https://tse3.mm.bing.net/th/id/OIP.A1JjNu8jIRxaTJHbD_EtFwHaIJ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Яблоко буває різних кольорів",
+      "photo": "https://i.pinimg.com/736x/5f/c3/1e/5fc31eb8fa5d60e6121147b782c55f1d.jpg",
+      "description": "A juicy apple fruit that is eaten fresh or baked, and is used as an ingredient in cooking and for making drinks.",
       "id": "xQZNxbWgEMw"
     },
     {
       "title": "Peach",
-      "photo": "https://minnetonkaorchards.com/wp-content/uploads/2022/08/Peaches-on-Tree-SS-461362939.jpg",
+      "photo": "https://i.pinimg.com/1200x/bc/58/17/bc5817bb0fb5aca73da8082e750b6834.jpg",
       "description": "The peach is a deciduous tree or tree like shrub that may rarely grow to as much as 10 meters (33 ft) tall, but is more typically 3 m (10 ft) with large specimens reaching 4 m (13 ft). ",
       "id": "JIdhc3HqgC8"
     },
     {
-      "title": "Pear",
-      "photo": "https://tse3.mm.bing.net/th/id/OIP.0YTmXWNzFj7LdCyMVeHFfwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Pears are a genus of trees, Pyrus /ˈpaɪrəs/, in the family Rosaceae, that bear an edible apple-like fruit of the same name.",
-      "id": "_f6C84S9Oz4"
-    },
-    {
       "title": "Watermelon",
-      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/500px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "photo": "https://i.pinimg.com/736x/ba/8e/ae/ba8eae62aceebf8fc9bcc22bb3dbf038.jpg",
       "description": "The watermelon (Citrullus lanatus) is a species of flowering plant in the family Cucurbitaceae. ",
       "id": "x--WuPaVak0"
     },
     {
       "title": "Melon",
-      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Cantaloupe_and_canary_melon.jpg/960px-Cantaloupe_and_canary_melon.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "photo": "https://i.pinimg.com/1200x/3e/50/5e/3e505e20f80e81c4a7aab44be664c87f.jpg",
       "description": "A melon is any of various plants of the family Cucurbitaceae with sweet, edible, and fleshy fruit. ",
       "id": "jN_tQe5qefE"
     },
     {
-      "title": " Grape",
-      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Grapes%2C_Rostov-on-Don%2C_Russia.jpg/500px-Grapes%2C_Rostov-on-Don%2C_Russia.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "title": "Grape",
+      "photo": "https://i.pinimg.com/1200x/f6/37/67/f637670639347fa4f604745304ded1f6.jpg",
       "description": "A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis. ",
       "id": "f_LwGrnhzII"
     },
     {
-      "title": "orange",
-      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/960px-Oranges_-_whole-halved-segment.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "title": "Orange",
+      "photo": "https://i.pinimg.com/736x/cb/5a/d1/cb5ad1e62cfddeafbf2ec0b35a8530dc.jpg",
       "description": "The orange, also called sweet orange to distinguish it from the bitter orange (Citrus × aurantium), is the fruit of a tree in the family Rutaceae. Botanically, this is the hybrid Citrus × sinensis, between the pomelo (Citrus maxima) and the mandarin orange (Citrus reticulata).",
       "id": "HZHdEQlhmJQ"
     },
     {
       "title": "Pomegranate",
-      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Pomegranate_Juice_%282019%29.jpg/500px-Pomegranate_Juice_%282019%29.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+      "photo": "https://i.pinimg.com/736x/17/f9/e7/17f9e74d708bd9b43f7fcbc66727df2e.jpg",
       "description": "The pomegranate (Punica granatum) is a fruit-bearing, deciduous shrub in the family Lythraceae, subfamily Punicoideae, that grows to between 1.5–5 metres (5–16 ft) tall.",
       "id": "6CGSEVlCHbs"
     },
     {
-      "title": "Banana",
-      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Жовтий",
-      "id": "SnUD49s1fio"
+      "title": "Strawberry",
+      "photo": "https://i.pinimg.com/736x/b9/8b/52/b98b528f5b63337b23ad581d2aedc208.jpg",
+      "description": "The fruit is appreciated for its aroma, bright red colour, juicy texture, and sweetness. It is eaten either fresh or in prepared foods such as jam, ice cream, and chocolates.",
+      "id": "uC6yUZBglAs"
     },
     {
-      "title": "Banana",
-      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Жовтий",
-      "id": "WSdWesA_PrA"
-    },
-    {
-      "title": "Banana",
-      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Жовтий",
-      "id": "dhzlnJqEWZQ"
-    },
-    {
-      "title": "Banana",
-      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Жовтий",
-      "id": "0uAymSUrltQ"
+      "title": "Mango",
+      "photo": "https://i.pinimg.com/736x/db/5c/ff/db5cff04a60d7bcd3467b90c1ae70798.jpg",
+      "description": "The mango tree is a large, evergreen species that can grow up to 30–40 meters tall with a wide crown and long, lance-shaped leaves",
+      "id": "HpWuTrKDRlU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

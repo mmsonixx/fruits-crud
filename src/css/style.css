@@ -1,0 +1,182 @@
+body{
+    background-image: url("../img/backgriond.jpg");
+     background-size: 100%;
+background-attachment: fixed;
+}
+
+
+.fruits{
+padding-top: 100px;
+padding-bottom: 100px;
+}
+.fruits_list{
+
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+}
+.fruit_item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: transparent;
+    box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.6) inset,
+      0 0 40px rgba(255, 255, 255, 0.15) inset;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px 15px;
+
+}
+.friut_title {
+        font-family: "Cherry Cream Soda", system-ui;
+      color: #f4ecec;
+    margin-bottom: 10px;
+}
+
+
+.fruit_img {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+.fruit_description {
+    font-family: "Open Sans", sans-serif;
+       color: #f4ecec;
+    margin-bottom: 15px;
+    height: 100px;
+}
+
+.button__wrapper{
+display: flex;
+gap: 40px;
+}
+.fruit_button-delete{
+      font-family: "Cherry Cream Soda", system-ui;
+       color: #f4ecec;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: transparent;
+     box-shadow:
+      0 0 15px rgba(174, 75, 75, 0.6) inset,
+      0 0 40px rgba(120, 57, 57, 0.15) inset;
+    border: 1px solid rgb(195, 82, 62);
+   color: #7d3838;
+     border-radius: 3px;
+     transition: box-shadow 0.5s ease, border-color 0.5s ease;
+  
+}
+.fruit_button-delete:hover {
+     box-shadow:
+        0 0 15px rgba(123, 52, 52, 0.9) inset,
+        0 0 40px rgba(116, 25, 25, 0.4) inset;
+}
+
+.fruit_button-update{
+      font-family: "Cherry Cream Soda", system-ui;
+       color: #f4ecec;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: transparent;
+     box-shadow:
+      0 0 15px rgba(174, 172, 75, 0.6) inset,
+      0 0 40px rgba(120, 109, 57, 0.15) inset;
+    border: 1px solid rgb(195, 173, 62);
+   color: #7d7d38;
+     border-radius: 3px;
+     transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.fruit_button-update:hover {
+     box-shadow:
+        0 0 15px rgba(123, 110, 52, 0.9) inset,
+        0 0 40px rgba(116, 105, 25, 0.4) inset;
+}
+
+[data-form]{
+    margin-top: 70px;
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 450px;
+padding: 40px 25px;
+margin-left: auto;
+margin-right: auto;
+   box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.6) inset,
+      0 0 40px rgba(255, 255, 255, 0.15) inset;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+[data-title]{
+ 
+margin-bottom: 10px;
+
+  
+}
+[data-link]{
+
+margin-bottom: 10px;
+}
+[data-description]{
+
+margin-bottom: 10px;
+}
+[data-button]{
+        font-family: "Cherry Cream Soda", system-ui;
+    margin-top: 20px;
+font-size: 20px;
+    padding: 5px 50px;
+    background-color: transparent;
+    box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.6) inset,
+      0 0 40px rgba(255, 255, 255, 0.15) inset;
+    border: 1px solid rgb(176, 176, 183);
+   color: #ede2e2;
+     transition: box-shadow 0.5s ease, border-color 0.5s ease; 
+}
+[data-button]:hover {
+      box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.9) inset,
+        0 0 40px rgba(255, 255, 255, 0.4) inset;
+}
+
+label {
+       font-family: "Cherry Cream Soda", system-ui;
+      font-size: 20px;
+      margin-bottom: 5px;
+     color: #f4ecec;
+}
+
+input {
+    padding: 5px 10px;
+   width: 400px;
+     font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    color: rgba(117, 117, 120, 0.647);
+background-color: transparent;
+ backdrop-filter: blur(10px);
+  box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.6) inset,
+      0 0 40px rgba(255, 255, 255, 0.15) inset;
+ border: 1px solid rgb(176, 176, 183);
+ transition: box-shadow 0.5s ease, border-color 0.5s ease; 
+ border-radius: 3px;
+}
+input:hover,input:focus {
+     outline: none;
+        box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.9) inset,
+        0 0 40px rgba(255, 255, 255, 0.4) inset;
+     
+}
+
+
+
+
+

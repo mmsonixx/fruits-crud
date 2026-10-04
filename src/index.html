@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
 
-<form  data-form>
-    <label for="">Назва фрукта</label>
-    <input type="text" data-title name="title">
-    <label for="">Посилання на картинку</label>
-    <input type="text" data-link name="img">
-    <label for="" >Опис</label>
-    <input type="text" data-description name="description">
-    <button type="submit" data-button >Відправити</button>
-</form>
-<ul class="fruits_list"></ul>
 
-<p>test</p>
+<form  data-form>
+    <label for="">Name of the fruit</label>
+    <input type="text" data-title name="title">
+    <label for="">Link to the picture</label>
+    <input type="text" data-link name="img">
+    <label for="" >Description</label>
+    <input type="text" data-description name="description">
+    <button type="submit" data-button >Send</button> 
+</form>
+
+<section class="fruits">
+<ul class="fruits_list"></ul>
+</section>
 <script type="module" src="./index.js"></script>
 <script type="module" src="./js/addNewFruit.js"></script>
+<script type="module" src="./js/updateFruit.js"></script>
 </body>
 </html>

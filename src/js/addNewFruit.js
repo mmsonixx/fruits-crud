@@ -1,5 +1,6 @@
 import { addFruitApi } from "./api/addFruit.js";
 import { getFriuts } from "./api/get-fruits.js";
+import { renderFruits } from "../index.js";
 const form = document.querySelector("[data-form]");
 const titleFruit = document.querySelector("[data-title]");
 const linkFruit = document.querySelector("[data-description]");
@@ -12,9 +13,8 @@ form.addEventListener("submit", (event) => {
   const description = elements.description.value;
   const fruit = { title: title, photo: img, description: description };
   addFruitApi(fruit);
-getFriuts().then((data) => {
-  fruitList.innerHTML = makeFrutsList(data);
-});
+renderFruits();
+ form.reset();
 });
 
 
