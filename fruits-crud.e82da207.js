@@ -714,11 +714,52 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"CV2vf":[function(require,module,exports,__globalThis) {
-var _addFruitJs = require("./api/addFruit.js");
-var _getFruitsJs = require("./api/get-fruits.js");
+var _updateFruitsJs = require("./api/updateFruits.js");
 var _indexJs = require("../index.js");
-const form = document.querySelector("[data-form]");
+const form = document.querySelector("[data-modal-form]");
+const modal = document.querySelector("[data-modal]");
+const closeBtn = document.querySelector(".close-btn");
+let fruitId = null;
+document.addEventListener("click", (event)=>{
+    if (!event.target.classList.contains("fruit_button-update")) return;
+    fruitId = event.target.dataset.id;
+    console.log("ID:", fruitId);
+    modal.classList.remove("is-hidden");
+});
+closeBtn.addEventListener("click", ()=>{
+    modal.classList.add("is-hidden");
+});
+form.addEventListener("submit", async (event)=>{
+    event.preventDefault();
+    const elements = event.target.elements;
+    const title = elements.title.value;
+    const img = elements.img.value;
+    const description = elements.description.value;
+    const fruit = {
+        title: title,
+        photo: img,
+        description: description
+    };
+    await (0, _updateFruitsJs.updateFruits)(fruitId, fruit);
+    modal.classList.add("is-hidden");
+    form.reset();
+    (0, _indexJs.renderFruits)();
+});
 
-},{"./api/addFruit.js":"bKLre","./api/get-fruits.js":"cw6QM","../index.js":"a0t4e"}]},["2Sji4","CV2vf"], "CV2vf", "parcelRequire423e", {})
+},{"../index.js":"a0t4e","./api/updateFruits.js":"foXeb"}],"foXeb":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateFruits", ()=>updateFruits);
+const updateFruits = (id, fruit)=>{
+    return fetch(`http://localhost:3000/fruits/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(fruit)
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["2Sji4","CV2vf"], "CV2vf", "parcelRequire423e", {})
 
 //# sourceMappingURL=fruits-crud.e82da207.js.map

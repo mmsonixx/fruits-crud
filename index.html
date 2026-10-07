@@ -1,20 +1,39 @@
-<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=stylesheet href=/fruits-crud/fruits-crud.330152ee.css><link rel=stylesheet href=/fruits-crud/fruits-crud.68609192.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Playpen+Sans:wght@100..800&amp;display=swap" rel=stylesheet><title>Document</title><body>
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=stylesheet href=/fruits-crud/fruits-crud.330152ee.css><link rel=stylesheet href=/fruits-crud/fruits-crud.60cf6093.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Playpen+Sans:wght@100..800&amp;display=swap" rel=stylesheet><title>Document</title><body>
+    <form data-form>
+      <label for>Name of the fruit</label>
+      <input data-title name=title>
+      <label for>Link to the picture</label>
+      <input data-link name=img>
+      <label for>Description</label>
+      <input data-description name=description>
+      <button data-button>Send</button>
+    </form>
 
+    <section class=fruits>
+      <ul class=fruits_list></ul>
+    </section>
 
-<form data-form>
-    <label for>Name of the fruit</label>
-    <input data-title name=title>
-    <label for>Link to the picture</label>
-    <input data-link name=img>
-    <label for>Description</label>
-    <input data-description name=description>
-    <button data-button>Send</button> 
-</form>
+    <div class=modal>
+      <div class="is-hidden modal__backdrop" data-modal>
+        <form class=modal__form data-modal-form>
+          <button type=button class=close-btn>X</button>
 
-<section class=fruits>
-<ul class=fruits_list></ul>
-</section>
-<script type=module src=/fruits-crud/fruits-crud.147504ae.js></script>
-<script type=module src=/fruits-crud/fruits-crud.c43cdeaa.js></script>
-<script type=module src=/fruits-crud/fruits-crud.d88212f1.js></script>
+          <label for=title>Name of the fruit</label>
+          <input id=title name=title>
+
+          <label for=img>Link to the picture</label>
+          <input id=img name=img>
+
+          <label for=description>Description</label>
+          <input id=description name=description>
+
+          <button class=modal__btn>Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script type=module src=/fruits-crud/fruits-crud.147504ae.js></script>
+    <script type=module src=/fruits-crud/fruits-crud.c43cdeaa.js></script>
+    <script type=module src=/fruits-crud/fruits-crud.2ef8c686.js></script>
+  
 
