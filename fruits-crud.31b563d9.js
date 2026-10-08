@@ -714,28 +714,48 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
-var _getFruits = require("./js/api/get-fruits");
-var _makeFruitsList = require("./js/markup/makeFruitsList");
-var _deleteFruit = require("./js/api/deleteFruit");
-var _renderFruits = require("./js/markup/renderFruits");
-(0, _renderFruits.renderFruits)();
-document.addEventListener("click", function(event) {
-    if (!event.target.classList.contains("fruit_button-delete")) return;
-    const elementId = event.target.dataset.id;
-    (0, _deleteFruit.deleteFruit)(elementId).then(()=>{
-        console.log("\u0424\u0440\u0443\u043A\u0442 \u0443\u0434\u0430\u043B\u0451\u043D");
-        (0, _renderFruits.renderFruits)();
-    });
-});
+var _renderPage = require("./js/markup/renderPage");
+(0, _renderPage.renderPage)();
 
-},{"./js/api/get-fruits":"cw6QM","./js/markup/makeFruitsList":"oBYLt","./js/api/deleteFruit":"7ALOh","./js/markup/renderFruits":"6dSmm"}],"cw6QM":[function(require,module,exports,__globalThis) {
-//отримання фрруктів
+},{"./js/markup/renderPage":"7MoIJ"}],"7MoIJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getFriuts", ()=>getFriuts);
-const getFriuts = async ()=>{
-    return await fetch("http://localhost:3000/fruits").then((response)=>{
-        return response.json();
+parcelHelpers.export(exports, "renderPage", ()=>renderPage);
+var _addNewFruit = require("../fruitsOperations/addNewFruit");
+var _deleteFruit = require("../fruitsOperations/deleteFruit");
+var _renderFruits = require("./renderFruits");
+var _updateFruit = require("../fruitsOperations/updateFruit");
+const renderPage = async ()=>{
+    await (0, _renderFruits.renderFruits)();
+    document.addEventListener("click", (0, _deleteFruit.deleteFruit));
+    const form = document.querySelector("[data-form]");
+    form.addEventListener("submit", (0, _addNewFruit.addFruit));
+    document.addEventListener("click", (0, _updateFruit.updateFruit));
+};
+
+},{"../fruitsOperations/deleteFruit":"lbLzD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./renderFruits":"6dSmm","../fruitsOperations/addNewFruit":"endBt","../fruitsOperations/updateFruit":"3P6Ne"}],"lbLzD":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "deleteFruit", ()=>deleteFruit);
+var _deleteFruitApi = require("../api/deleteFruitApi");
+var _renderFruits = require("../markup/renderFruits");
+const deleteFruit = async (event)=>{
+    if (!event.target.classList.contains("fruit_button-delete")) return;
+    else {
+        const elementId = event.target.dataset.id;
+        await (0, _deleteFruitApi.deleteFruitApi)(elementId).then(async ()=>{
+            await (0, _renderFruits.renderFruits)();
+        });
+    }
+};
+
+},{"../api/deleteFruitApi":"bztdf","../markup/renderFruits":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bztdf":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
+const deleteFruitApi = async (id)=>{
+    return await fetch(`http://localhost:3000/fruits/${id}`, {
+        method: "DELETE"
     });
 };
 
@@ -769,7 +789,31 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"oBYLt":[function(require,module,exports,__globalThis) {
+},{}],"6dSmm":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderFruits", ()=>renderFruits);
+var _getFruitsApi = require("../api/getFruitsApi");
+var _makeFruitsList = require("./makeFruitsList");
+const fruitList = document.querySelector(".fruits_list");
+const renderFruits = async ()=>{
+    await (0, _getFruitsApi.getFriutsApi)().then((data)=>{
+        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
+    });
+};
+
+},{"../api/getFruitsApi":"2T2Ac","./makeFruitsList":"oBYLt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2T2Ac":[function(require,module,exports,__globalThis) {
+//отримання фрруктів
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFriutsApi", ()=>getFriutsApi);
+const getFriutsApi = async ()=>{
+    return await fetch("http://localhost:3000/fruits").then((response)=>{
+        return response.json();
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"oBYLt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "makeFrutsList", ()=>makeFrutsList);
@@ -790,29 +834,90 @@ const makeFrutsList = (fruits)=>{
     return markup;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7ALOh":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"endBt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "deleteFruit", ()=>deleteFruit);
-const deleteFruit = async (id)=>{
+parcelHelpers.export(exports, "addFruit", ()=>addFruit);
+var _addFruitApiJs = require("../api/addFruitApi.js");
+var _renderFruitsJs = require("../markup/renderFruits.js");
+const addFruit = async (event)=>{
+    const form = document.querySelector("[data-form]");
+    event.preventDefault();
+    const elements = event.target.elements;
+    const title = elements.title.value;
+    const img = elements.img.value;
+    const description = elements.description.value;
+    const fruit = {
+        title: title,
+        photo: img,
+        description: description
+    };
+    await (0, _addFruitApiJs.addFruitApi)(fruit);
+    await (0, _renderFruitsJs.renderFruits)();
+    form.reset();
+};
+
+},{"../api/addFruitApi.js":"HV4L6","../markup/renderFruits.js":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"HV4L6":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
+const addFruitApi = async (newFruit)=>{
+    const options = {
+        method: "POST",
+        body: JSON.stringify(newFruit)
+    };
+    await fetch("http://localhost:3000/fruits", options);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3P6Ne":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateFruit", ()=>updateFruit);
+var _updateFruitsApiJs = require("../api/updateFruitsApi.js");
+var _renderFruitsJs = require("../markup/renderFruits.js");
+const form = document.querySelector("[data-modal-form]");
+const modal = document.querySelector("[data-modal]");
+const closeBtn = document.querySelector(".close-btn");
+let fruitId = null;
+const updateFruit = async (event)=>{
+    if (!event.target.classList.contains("fruit_button-update")) return;
+    fruitId = event.target.dataset.id;
+    modal.classList.remove("is-hidden");
+    closeBtn.addEventListener("click", ()=>{
+        modal.classList.add("is-hidden");
+    });
+    form.addEventListener("submit", async (event)=>{
+        event.preventDefault();
+        const elements = event.target.elements;
+        const title = elements.title.value;
+        const img = elements.img.value;
+        const description = elements.description.value;
+        const fruit = {
+            title: title,
+            photo: img,
+            description: description
+        };
+        await (0, _updateFruitsApiJs.updateFruitsApi)(fruitId, fruit);
+        modal.classList.add("is-hidden");
+        form.reset();
+        await (0, _renderFruitsJs.renderFruits)();
+    });
+};
+
+},{"../api/updateFruitsApi.js":"5ZZvd","../markup/renderFruits.js":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5ZZvd":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "updateFruitsApi", ()=>updateFruitsApi);
+const updateFruitsApi = async (id, fruit)=>{
     return await fetch(`http://localhost:3000/fruits/${id}`, {
-        method: "DELETE"
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(fruit)
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6dSmm":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderFruits", ()=>renderFruits);
-var _getFruits = require("../api/get-fruits");
-var _makeFruitsList = require("./makeFruitsList");
-const fruitList = document.querySelector(".fruits_list");
-const renderFruits = async ()=>{
-    await (0, _getFruits.getFriuts)().then((data)=>{
-        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
-    });
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api/get-fruits":"cw6QM","./makeFruitsList":"oBYLt"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
 
 //# sourceMappingURL=fruits-crud.31b563d9.js.map

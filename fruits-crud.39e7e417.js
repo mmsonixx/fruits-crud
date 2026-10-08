@@ -749,6 +749,51 @@ const addFruitApi = async (newFruit)=>{
     await fetch("http://localhost:3000/fruits", options);
 };
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cw6QM":[function(require,module,exports,__globalThis) {
+//отримання фрруктів
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFriuts", ()=>getFriuts);
+const getFriuts = async ()=>{
+    return await fetch("http://localhost:3000/fruits").then((response)=>{
+        return response.json();
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6dSmm":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderFruits", ()=>renderFruits);
+var _getFruits = require("../api/get-fruits");
+var _makeFruitsList = require("./makeFruitsList");
+const fruitList = document.querySelector(".fruits_list");
+const renderFruits = async ()=>{
+    await (0, _getFruits.getFriuts)().then((data)=>{
+        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api/get-fruits":"cw6QM","./makeFruitsList":"oBYLt"}],"oBYLt":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "makeFrutsList", ()=>makeFrutsList);
+const makeFrutsList = (fruits)=>{
+    const markup = fruits.map((fruit)=>`<li class="fruit_item" data-id="${fruit.id}">
+    <h2 class="friut_title">${fruit.title}</h2>
+        <img src="${fruit.photo}" alt="${fruit.title}" class="fruit_img">
+        <p class="fruit_description">${fruit.description}</p>
+        <div class="button__wrapper">
+       <button class="fruit_button-delete" type="button" data-id="${fruit.id}">
+            Delete
+          </button>
+           <button class="fruit_button-update" type="button" data-id="${fruit.id}">
+          Update
+          </button>
+          </div>
+</li>`).join("");
+    return markup;
+};
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["h8ccv","8zwhT"], "8zwhT", "parcelRequire423e", {})
 
 //# sourceMappingURL=fruits-crud.39e7e417.js.map
