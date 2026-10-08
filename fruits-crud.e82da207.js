@@ -716,6 +716,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"CV2vf":[function(require,module,exports,__globalThis) {
 var _updateFruitsJs = require("./api/updateFruits.js");
 var _indexJs = require("../index.js");
+var _renderFruitsJs = require("./markup/renderFruits.js");
 const form = document.querySelector("[data-modal-form]");
 const modal = document.querySelector("[data-modal]");
 const closeBtn = document.querySelector(".close-btn");
@@ -743,15 +744,15 @@ form.addEventListener("submit", async (event)=>{
     await (0, _updateFruitsJs.updateFruits)(fruitId, fruit);
     modal.classList.add("is-hidden");
     form.reset();
-    (0, _indexJs.renderFruits)();
+    await (0, _renderFruitsJs.renderFruits)();
 });
 
-},{"../index.js":"a0t4e","./api/updateFruits.js":"foXeb"}],"foXeb":[function(require,module,exports,__globalThis) {
+},{"../index.js":"a0t4e","./api/updateFruits.js":"foXeb","./markup/renderFruits.js":"6dSmm"}],"foXeb":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "updateFruits", ()=>updateFruits);
-const updateFruits = (id, fruit)=>{
-    return fetch(`http://localhost:3000/fruits/${id}`, {
+const updateFruits = async (id, fruit)=>{
+    return await fetch(`http://localhost:3000/fruits/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

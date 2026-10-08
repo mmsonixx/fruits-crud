@@ -714,35 +714,27 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderFruits", ()=>renderFruits);
 var _getFruits = require("./js/api/get-fruits");
 var _makeFruitsList = require("./js/markup/makeFruitsList");
 var _deleteFruit = require("./js/api/deleteFruit");
-const fruitList = document.querySelector(".fruits_list");
-const renderFruits = ()=>{
-    (0, _getFruits.getFriuts)().then((data)=>{
-        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
-    });
-};
-renderFruits();
+var _renderFruits = require("./js/markup/renderFruits");
+(0, _renderFruits.renderFruits)();
 document.addEventListener("click", function(event) {
     if (!event.target.classList.contains("fruit_button-delete")) return;
     const elementId = event.target.dataset.id;
     (0, _deleteFruit.deleteFruit)(elementId).then(()=>{
         console.log("\u0424\u0440\u0443\u043A\u0442 \u0443\u0434\u0430\u043B\u0451\u043D");
-        renderFruits();
+        (0, _renderFruits.renderFruits)();
     });
 });
 
-},{"./js/api/get-fruits":"cw6QM","./js/markup/makeFruitsList":"oBYLt","./js/api/deleteFruit":"7ALOh","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cw6QM":[function(require,module,exports,__globalThis) {
+},{"./js/api/get-fruits":"cw6QM","./js/markup/makeFruitsList":"oBYLt","./js/api/deleteFruit":"7ALOh","./js/markup/renderFruits":"6dSmm"}],"cw6QM":[function(require,module,exports,__globalThis) {
 //отримання фрруктів
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getFriuts", ()=>getFriuts);
-const getFriuts = ()=>{
-    return fetch("http://localhost:3000/fruits").then((response)=>{
+const getFriuts = async ()=>{
+    return await fetch("http://localhost:3000/fruits").then((response)=>{
         return response.json();
     });
 };
@@ -802,12 +794,25 @@ const makeFrutsList = (fruits)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deleteFruit", ()=>deleteFruit);
-const deleteFruit = (id)=>{
-    return fetch(`http://localhost:3000/fruits/${id}`, {
+const deleteFruit = async (id)=>{
+    return await fetch(`http://localhost:3000/fruits/${id}`, {
         method: "DELETE"
     });
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6dSmm":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderFruits", ()=>renderFruits);
+var _getFruits = require("../api/get-fruits");
+var _makeFruitsList = require("./makeFruitsList");
+const fruitList = document.querySelector(".fruits_list");
+const renderFruits = async ()=>{
+    await (0, _getFruits.getFriuts)().then((data)=>{
+        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../api/get-fruits":"cw6QM","./makeFruitsList":"oBYLt"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
 
 //# sourceMappingURL=fruits-crud.31b563d9.js.map

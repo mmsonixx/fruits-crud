@@ -717,10 +717,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var _addFruitJs = require("./api/addFruit.js");
 var _getFruitsJs = require("./api/get-fruits.js");
 var _indexJs = require("../index.js");
+var _renderFruitsJs = require("./markup/renderFruits.js");
 const form = document.querySelector("[data-form]");
 const titleFruit = document.querySelector("[data-title]");
 const linkFruit = document.querySelector("[data-description]");
-form.addEventListener("submit", (event)=>{
+form.addEventListener("submit", async (event)=>{
     event.preventDefault();
     const elements = event.target.elements;
     const title = elements.title.value;
@@ -731,21 +732,21 @@ form.addEventListener("submit", (event)=>{
         photo: img,
         description: description
     };
-    (0, _addFruitJs.addFruitApi)(fruit);
-    (0, _indexJs.renderFruits)();
+    await (0, _addFruitJs.addFruitApi)(fruit);
+    await (0, _renderFruitsJs.renderFruits)();
     form.reset();
 });
 
-},{"./api/get-fruits.js":"cw6QM","./api/addFruit.js":"bKLre","../index.js":"a0t4e"}],"bKLre":[function(require,module,exports,__globalThis) {
+},{"./api/addFruit.js":"bKLre","./api/get-fruits.js":"cw6QM","../index.js":"a0t4e","./markup/renderFruits.js":"6dSmm"}],"bKLre":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
-const addFruitApi = (newFruit)=>{
+const addFruitApi = async (newFruit)=>{
     const options = {
         method: "POST",
         body: JSON.stringify(newFruit)
     };
-    fetch("http://localhost:3000/fruits", options);
+    await fetch("http://localhost:3000/fruits", options);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["h8ccv","8zwhT"], "8zwhT", "parcelRequire423e", {})
