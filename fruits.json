@@ -1,18 +1,6 @@
 {
   "fruits": [
     {
-      "title": "Banana",
-      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "description": "Жовтий",
-      "id": "JIdhc3HqgC8"
-    },
-    {
-      "title": "Watermelon",
-      "photo": "https://i.pinimg.com/736x/ba/8e/ae/ba8eae62aceebf8fc9bcc22bb3dbf038.jpg",
-      "description": "The watermelon (Citrullus lanatus) is a species of flowering plant in the family Cucurbitaceae. ",
-      "id": "x--WuPaVak0"
-    },
-    {
       "title": "Melon",
       "photo": "https://i.pinimg.com/1200x/3e/50/5e/3e505e20f80e81c4a7aab44be664c87f.jpg",
       "description": "A melon is any of various plants of the family Cucurbitaceae with sweet, edible, and fleshy fruit. ",
@@ -23,12 +11,6 @@
       "photo": "https://i.pinimg.com/1200x/f6/37/67/f637670639347fa4f604745304ded1f6.jpg",
       "description": "A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis. ",
       "id": "f_LwGrnhzII"
-    },
-    {
-      "title": "Orange",
-      "photo": "https://i.pinimg.com/736x/cb/5a/d1/cb5ad1e62cfddeafbf2ec0b35a8530dc.jpg",
-      "description": "The orange, also called sweet orange to distinguish it from the bitter orange (Citrus × aurantium), is the fruit of a tree in the family Rutaceae. Botanically, this is the hybrid Citrus × sinensis, between the pomelo (Citrus maxima) and the mandarin orange (Citrus reticulata).",
-      "id": "HZHdEQlhmJQ"
     },
     {
       "title": "Pomegranate",

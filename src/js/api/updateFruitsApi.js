@@ -1,4 +1,4 @@
-export const updateFruits = async (id, fruit) => {
+export const updateFruitsApi = async (id, fruit) => {
   return await fetch(`http://localhost:3000/fruits/${id}`, {
     method: "PUT",
     headers: {
