@@ -725,38 +725,57 @@ var _addNewFruit = require("../fruitsOperations/addNewFruit");
 var _deleteFruit = require("../fruitsOperations/deleteFruit");
 var _renderFruits = require("./renderFruits");
 var _updateFruit = require("../fruitsOperations/updateFruit");
-const renderPage = async ()=>{
-    await (0, _renderFruits.renderFruits)();
+const startEvents = async ()=>{
     document.addEventListener("click", (0, _deleteFruit.deleteFruit));
     const form = document.querySelector("[data-form]");
     form.addEventListener("submit", (0, _addNewFruit.addFruit));
     document.addEventListener("click", (0, _updateFruit.updateFruit));
 };
-
-},{"../fruitsOperations/deleteFruit":"lbLzD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./renderFruits":"6dSmm","../fruitsOperations/addNewFruit":"endBt","../fruitsOperations/updateFruit":"3P6Ne"}],"lbLzD":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "deleteFruit", ()=>deleteFruit);
-var _deleteFruitApi = require("../api/deleteFruitApi");
-var _renderFruits = require("../markup/renderFruits");
-const deleteFruit = async (event)=>{
-    if (!event.target.classList.contains("fruit_button-delete")) return;
-    else {
-        const elementId = event.target.dataset.id;
-        await (0, _deleteFruitApi.deleteFruitApi)(elementId).then(async ()=>{
-            await (0, _renderFruits.renderFruits)();
-        });
-    }
+const renderPage = async ()=>{
+    await (0, _renderFruits.renderFruits)();
+    await startEvents();
 };
 
-},{"../api/deleteFruitApi":"bztdf","../markup/renderFruits":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bztdf":[function(require,module,exports,__globalThis) {
+},{"../fruitsOperations/addNewFruit":"endBt","../fruitsOperations/deleteFruit":"lbLzD","./renderFruits":"6dSmm","../fruitsOperations/updateFruit":"3P6Ne","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"endBt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
-const deleteFruitApi = async (id)=>{
-    return await fetch(`http://localhost:3000/fruits/${id}`, {
-        method: "DELETE"
-    });
+parcelHelpers.export(exports, "addFruit", ()=>addFruit);
+var _addFruitApiJs = require("../api/addFruitApi.js");
+var _renderFruitsJs = require("../markup/renderFruits.js");
+const addFruit = async (event)=>{
+    const form = document.querySelector("[data-form]");
+    event.preventDefault();
+    const elements = event.target.elements;
+    const title = elements.title.value;
+    const img = elements.img.value;
+    const description = elements.description.value;
+    const fruit = {
+        title: title,
+        photo: img,
+        description: description
+    };
+    await (0, _addFruitApiJs.addFruitApi)(fruit);
+    // .catch(() => {
+    //     console.error("error")
+    // });
+    await (0, _renderFruitsJs.renderFruits)();
+    form.reset();
+};
+
+},{"../api/addFruitApi.js":"HV4L6","../markup/renderFruits.js":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"HV4L6":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
+const addFruitApi = async (newFruit)=>{
+    try {
+        const options = {
+            method: "POST",
+            body: JSON.stringify(newFruit)
+        };
+        await fetch("http://localhost:3000/fruits", options);
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
@@ -808,9 +827,13 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getFriutsApi", ()=>getFriutsApi);
 const getFriutsApi = async ()=>{
-    return await fetch("http://localhost:3000/fruits").then((response)=>{
-        return response.json();
-    });
+    try {
+        return await fetch("http://localhost:3000/fruits").then((response)=>{
+            return response.json();
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"oBYLt":[function(require,module,exports,__globalThis) {
@@ -834,39 +857,34 @@ const makeFrutsList = (fruits)=>{
     return markup;
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"endBt":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lbLzD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addFruit", ()=>addFruit);
-var _addFruitApiJs = require("../api/addFruitApi.js");
-var _renderFruitsJs = require("../markup/renderFruits.js");
-const addFruit = async (event)=>{
-    const form = document.querySelector("[data-form]");
-    event.preventDefault();
-    const elements = event.target.elements;
-    const title = elements.title.value;
-    const img = elements.img.value;
-    const description = elements.description.value;
-    const fruit = {
-        title: title,
-        photo: img,
-        description: description
-    };
-    await (0, _addFruitApiJs.addFruitApi)(fruit);
-    await (0, _renderFruitsJs.renderFruits)();
-    form.reset();
+parcelHelpers.export(exports, "deleteFruit", ()=>deleteFruit);
+var _deleteFruitApi = require("../api/deleteFruitApi");
+var _renderFruits = require("../markup/renderFruits");
+const deleteFruit = async (event)=>{
+    if (!event.target.classList.contains("fruit_button-delete")) return;
+    else {
+        const elementId = event.target.dataset.id;
+        await (0, _deleteFruitApi.deleteFruitApi)(elementId).then(async ()=>{
+            await (0, _renderFruits.renderFruits)();
+        });
+    }
 };
 
-},{"../api/addFruitApi.js":"HV4L6","../markup/renderFruits.js":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"HV4L6":[function(require,module,exports,__globalThis) {
+},{"../api/deleteFruitApi":"bztdf","../markup/renderFruits":"6dSmm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bztdf":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addFruitApi", ()=>addFruitApi);
-const addFruitApi = async (newFruit)=>{
-    const options = {
-        method: "POST",
-        body: JSON.stringify(newFruit)
-    };
-    await fetch("http://localhost:3000/fruits", options);
+parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
+const deleteFruitApi = async (id)=>{
+    try {
+        return await fetch(`http://localhost:3000/fruits/${id}`, {
+            method: "DELETE"
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3P6Ne":[function(require,module,exports,__globalThis) {
@@ -909,13 +927,17 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "updateFruitsApi", ()=>updateFruitsApi);
 const updateFruitsApi = async (id, fruit)=>{
-    return await fetch(`http://localhost:3000/fruits/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(fruit)
-    });
+    try {
+        return await fetch(`http://localhost:3000/fruits/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(fruit)
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
