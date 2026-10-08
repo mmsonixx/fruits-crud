@@ -29,6 +29,12 @@
       "photo": "https://i.pinimg.com/736x/db/5c/ff/db5cff04a60d7bcd3467b90c1ae70798.jpg",
       "description": "The mango tree is a large, evergreen species that can grow up to 30–40 meters tall with a wide crown and long, lance-shaped leaves",
       "id": "HpWuTrKDRlU"
+    },
+    {
+      "title": "Banan",
+      "photo": "https://i.pinimg.com/736x/b9/8b/52/b98b528f5b63337b23ad581d2aedc208.jpg",
+      "description": "Жовтий",
+      "id": "YImXrBeWO2k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

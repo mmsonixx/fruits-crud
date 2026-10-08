@@ -11,6 +11,9 @@ export const addFruit = async (event) => {
     const description = elements.description.value;
     const fruit = { title: title, photo: img, description: description };
     await addFruitApi(fruit);
+    // .catch(() => {
+    //     console.error("error")
+    // });
     await renderFruits();
     form.reset();
 };
