@@ -1,5 +1,6 @@
 import { updateFruits } from "./api/updateFruits.js";
 import { renderFruits } from "../index.js";
+import { renderFruits } from "./markup/renderFruits.js";
 
 const form = document.querySelector("[data-modal-form]");
 const modal = document.querySelector("[data-modal]");
@@ -35,9 +36,9 @@ form.addEventListener("submit", async (event) => {
     photo: img,
     description: description,
   };
-  
+
   await updateFruits(fruitId, fruit);
   modal.classList.add("is-hidden");
   form.reset();
-  renderFruits();
+  await renderFruits();
 });

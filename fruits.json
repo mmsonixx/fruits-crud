@@ -1,15 +1,9 @@
 {
   "fruits": [
     {
-      "title": "Apple",
-      "photo": "https://i.pinimg.com/736x/5f/c3/1e/5fc31eb8fa5d60e6121147b782c55f1d.jpg",
-      "description": "A juicy apple fruit that is eaten fresh or baked, and is used as an ingredient in cooking and for making drinks.",
-      "id": "xQZNxbWgEMw"
-    },
-    {
-      "title": "Peach",
-      "photo": "https://i.pinimg.com/1200x/bc/58/17/bc5817bb0fb5aca73da8082e750b6834.jpg",
-      "description": "The peach is a deciduous tree or tree like shrub that may rarely grow to as much as 10 meters (33 ft) tall, but is more typically 3 m (10 ft) with large specimens reaching 4 m (13 ft). ",
+      "title": "Banana",
+      "photo": "https://tse1.mm.bing.net/th/id/OIP.53xeqXbChqLgnlvvFPgFUQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "description": "Жовтий",
       "id": "JIdhc3HqgC8"
     },
     {

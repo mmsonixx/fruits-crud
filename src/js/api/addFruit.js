@@ -1,7 +1,7 @@
-export const addFruitApi = (newFruit) => {
+export const addFruitApi =  async (newFruit) => {
   const options = {
     method: "POST",
     body: JSON.stringify(newFruit),
   };
-  fetch("http://localhost:3000/fruits", options);
+   await fetch("http://localhost:3000/fruits", options);
 };
