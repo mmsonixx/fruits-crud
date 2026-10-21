@@ -725,18 +725,21 @@ var _addNewFruit = require("../fruitsOperations/addNewFruit");
 var _deleteFruit = require("../fruitsOperations/deleteFruit");
 var _renderFruits = require("./renderFruits");
 var _updateFruit = require("../fruitsOperations/updateFruit");
+var _loadMoreFruits = require("../fruitsOperations/loadMoreFruits");
 const startEvents = async ()=>{
     document.addEventListener("click", (0, _deleteFruit.deleteFruit));
     const form = document.querySelector("[data-form]");
     form.addEventListener("submit", (0, _addNewFruit.addFruit));
     document.addEventListener("click", (0, _updateFruit.updateFruit));
+    const moreBtn = document.querySelector(".moreFruits");
+    moreBtn.addEventListener("click", (0, _loadMoreFruits.loadMoreFruits));
 };
 const renderPage = async ()=>{
     await (0, _renderFruits.renderFruits)();
     await startEvents();
 };
 
-},{"../fruitsOperations/addNewFruit":"endBt","../fruitsOperations/deleteFruit":"lbLzD","./renderFruits":"6dSmm","../fruitsOperations/updateFruit":"3P6Ne","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"endBt":[function(require,module,exports,__globalThis) {
+},{"../fruitsOperations/addNewFruit":"endBt","../fruitsOperations/deleteFruit":"lbLzD","./renderFruits":"6dSmm","../fruitsOperations/updateFruit":"3P6Ne","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","../fruitsOperations/loadMoreFruits":"gQtYn"}],"endBt":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addFruit", ()=>addFruit);
@@ -816,21 +819,20 @@ var _getFruitsApi = require("../api/getFruitsApi");
 var _makeFruitsList = require("./makeFruitsList");
 const fruitList = document.querySelector(".fruits_list");
 const renderFruits = async ()=>{
-    await (0, _getFruitsApi.getFriutsApi)().then((data)=>{
-        fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(data);
-    });
+    const result = await (0, _getFruitsApi.getFruitsApi)(1);
+    fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(result.data);
+    document.querySelector(".moreFruits").hidden = result.next === null;
 };
 
 },{"../api/getFruitsApi":"2T2Ac","./makeFruitsList":"oBYLt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2T2Ac":[function(require,module,exports,__globalThis) {
-//отримання фрруктів
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getFriutsApi", ()=>getFriutsApi);
-const getFriutsApi = async ()=>{
+parcelHelpers.export(exports, "getFruitsApi", ()=>getFruitsApi);
+const getFruitsApi = async (page = 1)=>{
     try {
-        return await fetch("http://localhost:3000/fruits").then((response)=>{
-            return response.json();
-        });
+        const response = await fetch(`http://localhost:3000/fruits?_page=${page}&_per_page=3`);
+        const result = await response.json();
+        return result;
     } catch (error) {
         console.log(error.message);
     }
@@ -940,6 +942,30 @@ const updateFruitsApi = async (id, fruit)=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gQtYn":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "loadMoreFruits", ()=>loadMoreFruits);
+var _getFruitsApi = require("../api/getFruitsApi");
+var _makeFruitsList = require("../markup/makeFruitsList");
+const fruitList = document.querySelector(".fruits_list");
+const moreBtn = document.querySelector(".moreFruits");
+let page = 2;
+const loadMoreFruits = async ()=>{
+    const result = await (0, _getFruitsApi.getFruitsApi)(page);
+    if (!result || !Array.isArray(result.data)) return;
+    if (result.data.length === 0) {
+        moreBtn.hidden = true;
+        return;
+    }
+    fruitList.insertAdjacentHTML("beforeend", (0, _makeFruitsList.makeFrutsList)(result.data));
+    if (result.next === null) {
+        moreBtn.hidden = true;
+        return;
+    }
+    page++;
+};
+
+},{"../api/getFruitsApi":"2T2Ac","../markup/makeFruitsList":"oBYLt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire423e", {})
 
 //# sourceMappingURL=fruits-crud.31b563d9.js.map
