@@ -5,6 +5,10 @@ body {
 }
 
 .fruits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -263,6 +267,31 @@ input:focus {
     border-color 0.5s ease;
  }
 .modal__btn:hover{
+ box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.9) inset,
+    0 0 40px rgba(255, 255, 255, 0.4) inset;
+}
+ 
+.moreFruits {
+  width: 200px;
+   font-family: "Cherry Cream Soda", system-ui;
+   margin-left: auto;
+   margin-right: auto;
+  margin-top: 50px;
+  font-size: 20px;
+  padding: 5px 50px;
+  background-color: transparent;
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.6) inset,
+    0 0 40px rgba(255, 255, 255, 0.15) inset;
+  border: 1px solid rgb(176, 176, 183);
+  color: #ede2e2;
+  transition:
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.moreFruits:hover{
  box-shadow:
     0 0 15px rgba(255, 255, 255, 0.9) inset,
     0 0 40px rgba(255, 255, 255, 0.4) inset;

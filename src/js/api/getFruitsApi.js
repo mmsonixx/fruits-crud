@@ -1,9 +1,12 @@
-//отримання фрруктів
-export const getFriutsApi = async () => {
+export const getFruitsApi = async (page = 1) => {
   try {
-    return await fetch("http://localhost:3000/fruits").then((response) => {
-      return response.json();
-    });
+    const response = await fetch(
+      `http://localhost:3000/fruits?_page=${page}&_per_page=3`
+    );
+
+    const result = await response.json();
+
+  return result;
   } catch (error) {
     console.log(error.message);
   }

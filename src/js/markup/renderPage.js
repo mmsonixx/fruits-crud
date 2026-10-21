@@ -2,6 +2,7 @@ import { addFruit } from "../fruitsOperations/addNewFruit";
 import { deleteFruit } from "../fruitsOperations/deleteFruit";
 import { renderFruits } from "./renderFruits";
 import { updateFruit } from "../fruitsOperations/updateFruit";
+import { loadMoreFruits } from "../fruitsOperations/loadMoreFruits";
 
 const startEvents = async () => {
   document.addEventListener("click", deleteFruit);
@@ -10,6 +11,9 @@ const startEvents = async () => {
   form.addEventListener("submit", addFruit);
 
   document.addEventListener("click", updateFruit);
+
+  const moreBtn = document.querySelector(".moreFruits");
+moreBtn.addEventListener("click", loadMoreFruits);
 };
 
 export const renderPage = async () => {

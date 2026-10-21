@@ -35,6 +35,30 @@
       "photo": "https://i.pinimg.com/736x/b9/8b/52/b98b528f5b63337b23ad581d2aedc208.jpg",
       "description": "Жовтий",
       "id": "YImXrBeWO2k"
+    },
+    {
+      "title": "Apple",
+      "photo": "https://i.pinimg.com/1200x/b6/f7/4f/b6f74fd4cefb2f9e75a237d1b31ff13f.jpg",
+      "description": "An apple is the round, edible fruit of an apple tree .",
+      "id": "K1URXqxxGdY"
+    },
+    {
+      "title": "Papaya",
+      "photo": "https://i.pinimg.com/736x/91/d7/cb/91d7cb9b53775ebcdebfb5854066240f.jpg",
+      "description": "Papaya is a fast-growing tropical fruit plant belonging to the Caricaceae family.",
+      "id": "uZ13uokrqXs"
+    },
+    {
+      "title": "Fig",
+      "photo": "https://i.pinimg.com/1200x/79/49/74/79497428c6cf09bfd96da27d95268de0.jpg",
+      "description": "Fig, plant of the mulberry family (Moraceae) and its edible fruit.",
+      "id": "vxEuh795nNo"
+    },
+    {
+      "title": "Blueberry ",
+      "photo": "https://i.pinimg.com/736x/e1/54/47/e1544759f74294fdc9430773ca745f9f.jpg",
+      "description": "Hailed as a superfood, blueberries are an excellent source of dietary fibre, vitamin C, vitamin K, manganese, iron, and a number of antioxidants.",
+      "id": "MEHdYwGP5wo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
