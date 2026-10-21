@@ -6,7 +6,7 @@ const fruitList = document.querySelector(".fruits_list");
 export const renderFruits = async () => {
   const result = await getFruitsApi(1);
 
-  fruitList.innerHTML = makeFrutsList(result.data);
+  fruitList.innerHTML = makeFrutsList(result);
 
   document.querySelector(".moreFruits").hidden =
     result.next === null;

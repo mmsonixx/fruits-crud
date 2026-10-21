@@ -1,7 +1,7 @@
 export const getFruitsApi = async (page = 1) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/fruits?_page=${page}&_per_page=3`
+      `https://6ad8fa1cf89c5702ed9a5157.mockapi.io/fruits?page=${page}&limit=3`
     );
 
     const result = await response.json();
