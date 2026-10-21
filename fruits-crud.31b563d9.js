@@ -775,7 +775,8 @@ const addFruitApi = async (newFruit)=>{
             method: "POST",
             body: JSON.stringify(newFruit)
         };
-        await fetch("http://localhost:3000/fruits", options);
+        // await fetch("http://localhost:3000/fruits", options);
+        await fetch("https://6ad8fa1cf89c5702ed9a5157.mockapi.io/fruits", options);
     } catch (error) {
         console.log(error.message);
     }
@@ -820,7 +821,7 @@ var _makeFruitsList = require("./makeFruitsList");
 const fruitList = document.querySelector(".fruits_list");
 const renderFruits = async ()=>{
     const result = await (0, _getFruitsApi.getFruitsApi)(1);
-    fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(result.data);
+    fruitList.innerHTML = (0, _makeFruitsList.makeFrutsList)(result);
     document.querySelector(".moreFruits").hidden = result.next === null;
 };
 
@@ -830,7 +831,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getFruitsApi", ()=>getFruitsApi);
 const getFruitsApi = async (page = 1)=>{
     try {
-        const response = await fetch(`http://localhost:3000/fruits?_page=${page}&_per_page=3`);
+        const response = await fetch(`https://6ad8fa1cf89c5702ed9a5157.mockapi.io/fruits?page=${page}&limit=3`);
         const result = await response.json();
         return result;
     } catch (error) {
@@ -881,7 +882,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "deleteFruitApi", ()=>deleteFruitApi);
 const deleteFruitApi = async (id)=>{
     try {
-        return await fetch(`http://localhost:3000/fruits/${id}`, {
+        return await fetch(`https://6ad8fa1cf89c5702ed9a5157.mockapi.io/fruits/${id}`, {
             method: "DELETE"
         });
     } catch (error) {
@@ -930,7 +931,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "updateFruitsApi", ()=>updateFruitsApi);
 const updateFruitsApi = async (id, fruit)=>{
     try {
-        return await fetch(`http://localhost:3000/fruits/${id}`, {
+        return await fetch(`https://6ad8fa1cf89c5702ed9a5157.mockapi.io/fruits/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -953,12 +954,12 @@ const moreBtn = document.querySelector(".moreFruits");
 let page = 2;
 const loadMoreFruits = async ()=>{
     const result = await (0, _getFruitsApi.getFruitsApi)(page);
-    if (!result || !Array.isArray(result.data)) return;
-    if (result.data.length === 0) {
+    if (!result || !Array.isArray(result)) return;
+    if (result.length === 0) {
         moreBtn.hidden = true;
         return;
     }
-    fruitList.insertAdjacentHTML("beforeend", (0, _makeFruitsList.makeFrutsList)(result.data));
+    fruitList.insertAdjacentHTML("beforeend", (0, _makeFruitsList.makeFrutsList)(result));
     if (result.next === null) {
         moreBtn.hidden = true;
         return;
